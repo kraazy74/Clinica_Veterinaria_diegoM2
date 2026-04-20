@@ -1,4 +1,4 @@
-const validarContentType = (req, res, next) => {
+   const validarContentType = (req, res, next) => {
     const metodosComBody = ['POST', 'PUT']
 
     if (metodosComBody.includes(req.method)) {
