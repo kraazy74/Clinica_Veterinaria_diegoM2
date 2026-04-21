@@ -1,10 +1,10 @@
-const acervo = [
+const consultas = [
   {
     id:1 ,
-    nome: 'asdsadwjkl',
-    especie: 'cachorro',
-    raca: 'Labrador',
-    data_nascimento: '2020-01-01',
+    nome_paciente: 'asdsadwjkl',
+    grau: 'leve',
+    motivo: 'exame de rotina',
+    data: '2020-01-01',
     tutor_id: 1
   },
   {
