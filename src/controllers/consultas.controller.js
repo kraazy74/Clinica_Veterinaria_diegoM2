@@ -11,11 +11,11 @@ const listarConsulatas = async (req, res) => {
 };
 
 // GET /animais/:id — Busca animal por ID
-async function buscarAnimalPorId(req, res) {
+async function buscarConsultaPorId(req, res) {
     try {
         // Extrai o parâmetro da URL — essa é a responsabilidade do Controller
         const { id } = req.params;
-        const animal = await AnimaisService.buscarAnimalPorId(id);
+        const consulta = await consultaService.buscarConsultaPorId(id);
 
         // Se o Service retornou null, o animal não existe
         if (!consulta) {
@@ -35,11 +35,11 @@ const criarAnimal = async (req, res) => {
   try {
     // Extrai os dados do corpo da requisição
     const { nome, especie } = req.body;
-    const novoAnimal = await AnimaisService.criarAnimal({ nome, especie });
+    const novoAnimal = await AnimaisService.criarConsulta({ nome, animal });
 
     // 201 = Created — status correto para criação bem-sucedida
     res.status(201).json({
-      mensagem: 'Animal cadastrado no acervo com sucesso!',
+      mensagem: 'consulta cadastrada com sucesso!',
       animal: novoAnimal,
     });
   } catch (erro) {
@@ -48,4 +48,4 @@ const criarAnimal = async (req, res) => {
   }
 };
 
-module.exports = { listarAnimais, buscarAnimalPorId, criarAnimal };
+module.exports = { listarConsulatas, buscarConsultaPorId criarConsulta };
