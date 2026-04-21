@@ -8,52 +8,52 @@ const consultas = [
     tutor_id: 1
   },
   {
-    id: 2,
-    nome: 'asdfghjkl',
-    especie: 'cachorro',
-    raca: 'Labrador',
-    data_nascimento: '2020-01-01',
-    tutor_id: 1
+    id:w ,
+    nome_paciente: 'adsal',
+    grau: 'leve',
+    motivo: 'exame pos-operatorio',
+    data: '2020-01-01',
+    tutor_id: 2
   },
   {
-    id: 3,
-    nome: 'afl',
-    especie: 'cachorro',
-    raca: 'Labrador',
-    data_nascimento: '2020-01-01',
-    tutor_id: 1
+    id:3,
+    nome_paciente: 'asdsddsal',
+    grau: 'grave',
+    motivo: 'operaçao relampago',
+    data: '2020-01-01',
+    tutor_id: 3
   }
 ];
 
 // Lista todos os animais do acervo
-const listarTodosAnimais = async () => {
-  return acervo;
+const listarTodasConsultas= async () => {
+  return consultas;
 };
 
 // Busca um animal específico pelo ID
-const buscarAnimalPorId = async (id) => {
-  const animais = acervo.find((l) => l.id === Number(id));
+const buscarConsultaPorId = async (id) => {
+  const consulta = consulta.find((l) => l.id === Number(id));
   // Regra de negócio: se não existe, retorna null.
   // O Controller decide o que fazer com o null.
-  return animais || null;
+  return consultas || null;
 };
 
 // Criar um novo animal no acervo
-const criarAnimal = async ({ nome, especie, raca, data_nascimento, tutor_id }) => {
+const criarConsulta = async ({ nome_paciente, grau, motivo, data, tutor_id }) => {
   // Regra de negócio: nome, especie, raca, data_nascimento e tutor_id são obrigatórios
-  if (!nome || !especie || !raca || !data_nascimento || !tutor_id) {
+  if (!nome_paciente || !grau || !motivo || !data || !tutor_id) {
     throw new Error('Todos os campos são obrigatórios.');
   }
-  const novoAnimal = {
-    id: acervo.length + 1,
-    nome,
-    especie,
-    raca,
-    data_nascimento,
+  const novaConsulta = {
+    id: consultas.length + 1,
+    nome_paciente,
+    grau,
+    motivo,
+    data,
     tutor_id
   };
-  acervo.push(novoLivro);
-  return novoLivro;
+  consultas.push(novaConsulta);
+  return novaConsulta;
 };
 
-module.exports = { listarTodosAnimais, buscarAnimalPorId, criarAnimal };
+module.exports = { listarTodasConsultas, buscarConsultaPorId, criarConsulta };
